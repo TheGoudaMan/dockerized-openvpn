@@ -7,3 +7,13 @@ build:
 create-client:
 	docker-compose run --rm openvpn easyrsa build-client-full $(CLIENTNAME) nopass
 	docker-compose run --rm openvpn ovpn_getclient $(CLIENTNAME) > keys/$(CLIENTNAME).ovpn
+
+revoke-client:
+	docker-compose exec openvpn easyrsa revoke $(CLIENT_NAME)
+	docker-compose exec openvpn easyrsa gen-crl
+	docker-compose exec openvpn cp /etc/openvpn/pki/crl.pem /etc/openvpn/crl.pem
+
+revoke-client:
+	docker-compose exec openvpn easyrsa revoke $(CLIENT_NAME)
+	docker-compose exec openvpn easyrsa gen-crl
+	docker-compose exec openvpn cp /etc/openvpn/pki/crl.pem /etc/openvpn/crl.pem
