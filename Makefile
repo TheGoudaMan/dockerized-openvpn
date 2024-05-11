@@ -3,6 +3,13 @@ build:
 	docker-compose run --rm openvpn ovpn_genconfig -u udp://$(IP_ADDRESS):1194
 	docker-compose run --rm openvpn ovpn_initpki
 
+start-server:
+	docker-compose up -d
+
+clean:
+	docker-compose down -v
+	docker rmi -f $(shell docker images -q)
+
 # make create-client CLIENTNAME=YOUR_CLIENT_NAME
 create-client:
 	docker-compose run --rm openvpn easyrsa build-client-full $(CLIENTNAME) nopass
