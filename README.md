@@ -1,5 +1,5 @@
 # dockerized-openvpn
-1. Install Docker & docker-compose on your system
+1. Install Docker & docker-compose & make on your system
 2. Start Docker daemon
 ## Use Makefile for basic management of openvpn server
 1. ```make build``` - initiate openvpn server and generate basic config for it
