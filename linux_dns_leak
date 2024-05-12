@@ -1,0 +1,8 @@
+
+script-security 2
+up /etc/openvpn/update-resolv-conf
+down /etc/openvpn/update-resolv-conf
+
+# Specify DNS servers
+dhcp-option DNS 8.8.8.8
+dhcp-option DNS 8.8.4.4
